@@ -36,11 +36,11 @@
                     </div>
 
                     <div class="form-group mt-2">
-                        <label class="control-label">Genre</label>
+                        <label class="control-label">Genre</label><br>
+                        <input type="radio" id="feminin" name="genre" value="feminin" th:value="feminin">
                         <label for="feminin">Feminin</label><br>
-                        <input id="feminin" class="form-control" name="genre" type="radio" th:value="feminin">
+                        <input type="radio"id="masculin" name="genre"  value="masculin" th:value="masculin">
                         <label for="masculin">Masculin</label><br>
-                        <input id="masculin" class="form-control" name="genre" type="radio" th:value="masculin">
                         <span th:errors="${student.genre}" class="text-danger"></span>
                     </div>
                     <div class="form-group mt-2">
@@ -48,6 +48,7 @@
                         <input name="enregle" type="checkbox" th:checked="${student.enRegle}" >
                         <span th:errors="${student.enRegle}" class="text-danger"></span>
                     </div>
+
                     <div class="mt-4">
                         <a class="btn btn-outline-primary" th:href="@{/user/index(id=${student.id}, keyword=${keyword}, page=${page})}">
                             <i class="fas fa-arrow-alt-circle-left"></i>

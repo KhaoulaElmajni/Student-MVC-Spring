@@ -4,7 +4,7 @@
       layout:decorate="template1">
 <head>
     <meta charset="UTF-8">
-    <title>Modifier un patient</title>
+    <title>Modifier un etudiant</title>
 
 </head>
 <body>
@@ -31,7 +31,7 @@
                     </div>
                     <div class="form-group mt-2">
                         <label class="control-label">Email</label>
-                        <input name="malade" type="checkbox" th:checked="${student.email}">
+                        <input class="form-control" name="email" type="text" th:value="${student.email}">
                         <span th:errors="${student.email}" class="text-danger"></span>
                     </div>
                     <div class="form-group mt-2">
