@@ -35,19 +35,28 @@
                         <span th:errors="${student.dateNaissance}" class="text-danger"></span>
                     </div>
 
-                    <div class="form-group mt-2">
+                    <!--<div class="form-group mt-2">
                         <label class="control-label">Genre</label><br>
                         <input type="radio" id="feminin" name="genre" value="feminin" th:value="feminin">
                         <label for="feminin">Feminin</label><br>
                         <input type="radio"id="masculin" name="genre"  value="masculin" th:value="masculin">
                         <label for="masculin">Masculin</label><br>
                         <span th:errors="${student.genre}" class="text-danger"></span>
+                    </div>-->
+
+                    <div th:each="model : ${T(me.khaoula.studentmvc.entities.Gender).values()}">
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" th:field="*{student.genre}" th:value="${model}" class="custom-control-input">
+                            <label class="custom-control-label" th:for="${#ids.prev('genre')}" th:text="${model}">model</label>
+                        </div>
                     </div>
+
                     <div class="form-group mt-2">
                         <label class="control-label">Etat de regle</label>
                         <input name="enregle" type="checkbox" th:checked="${student.enRegle}" >
                         <span th:errors="${student.enRegle}" class="text-danger"></span>
                     </div>
+                    
 
                     <div class="mt-4">
                         <a class="btn btn-outline-primary" th:href="@{/user/index(id=${student.id}, keyword=${keyword}, page=${page})}">

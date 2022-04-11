@@ -25,7 +25,7 @@ public class StudentMvcApplication {
         return new BCryptPasswordEncoder();
     }
 
-    //@Bean
+    @Bean
     CommandLineRunner commandLineRunner(StudentRepository studentRepository){
         return args -> {
             studentRepository.save(new Student(null,"khaoula","ELMAJNI","elmajnikhaoula99@gmail.com",new Date(), Gender.Feminin,true));
@@ -39,7 +39,7 @@ public class StudentMvcApplication {
 
         };
     }
-    //@Bean
+    @Bean
     CommandLineRunner saveUsers(SecurityService securityService){
         return args ->{
             securityService.saveNewUser("khaoula","1234","1234");
