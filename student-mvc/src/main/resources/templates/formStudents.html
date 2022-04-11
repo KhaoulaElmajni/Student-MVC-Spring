@@ -50,14 +50,11 @@
                             <label class="custom-control-label" th:for="${#ids.prev('genre')}" th:text="${model}">model</label>
                         </div>
                     </div>
-
                     <div class="form-group mt-2">
                         <label class="control-label">Etat de regle</label>
                         <input name="enregle" type="checkbox" th:checked="${student.enRegle}" >
                         <span th:errors="${student.enRegle}" class="text-danger"></span>
                     </div>
-                    
-
                     <div class="mt-4">
                         <a class="btn btn-outline-primary" th:href="@{/user/index(id=${student.id}, keyword=${keyword}, page=${page})}">
                             <i class="fas fa-arrow-alt-circle-left"></i>

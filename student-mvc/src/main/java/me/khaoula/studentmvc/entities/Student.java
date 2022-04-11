@@ -27,5 +27,4 @@ public class Student {
     @Enumerated(EnumType.STRING)
     private Gender genre;
     private Boolean enRegle;
-
 }

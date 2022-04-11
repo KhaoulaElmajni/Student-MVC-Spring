@@ -40,7 +40,7 @@
                                th:value="${student.dateNaissance}">
                         <span th:errors="${student.dateNaissance}" class="text-danger"></span>
                     </div>
-                    <div class="form-group mt-2">
+                    <!--<div class="form-group mt-2">
                         <label class="control-label">Genre</label>
                         <input id="feminin" class="form-control" name="genre" type="radio"
                                th:value="${student.genre}">
@@ -49,6 +49,14 @@
                                th:value="${student.genre}">
                         <label for="masculin">Masculin</label><br>
                         <span th:errors="${student.genre}" class="text-danger"></span>
+                    </div>-->
+
+                    <label class="control-label">Genre</label>
+                    <div th:each="model : ${T(me.khaoula.studentmvc.entities.Gender).values()}">
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" th:field="*{student.genre}" th:value="${model}" class="custom-control-input">
+                            <label class="custom-control-label" th:for="${#ids.prev('genre')}" th:text="${model}">model</label>
+                        </div>
                     </div>
                     <div class="form-group mt-2">
                         <label class="control-label">Etat de regle</label>
