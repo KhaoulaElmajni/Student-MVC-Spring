@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="template1"
+      >
+<head>
+    <meta charset="UTF-8">
+    <title>Students Management</title>
+
+</head>
+<body>
+<div layout:fragment="content1">
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header">liste des etudiants</div>
+            <div class="card-body">
+                <form method="get" th:action="@{/user/index}">
+                    <label>Chercher un etudiant :</label>
+                    <input type="text" name="keyword" placeholder="Nom d etudiant" th:value="${keyword}">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+                </form>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th><i class="fas fa-id-card"></i> ID</th>
+                        <th><i class="fas fa-file-user"></i> Nom</th>
+                        <th><i class="fas fa-file-user"></i> Prenom</th>
+                        <th><i class="fas fa-file-user"></i> Email</th>
+                        <th><i class="fas fa-calendar-alt"></i> Date de Naissance</th>
+                        <th><i class="fas fa-heartbeat"></i> Genre</th>
+                        <th><i class="far fa-star"></i> Etat de regle</th>
+                        <th><i class="fas fa-users-cog"></i> Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="s:${listStudents}">
+                        <td th:text="${s.id}"></td>
+                        <td th:text="${s.nom}"></td>
+                        <td th:text="${s.prenom}"></td>
+                        <td th:text="${s.email}"></td>
+                        <td th:text="${s.dateNaissance}"></td>
+                        <td th:text="${s.genre}"></td>
+                        <td th:text="${s.enRegle}"></td>
+                        <td>
+                            <a sec:authorize="hasAuthority('ADMIN')" onclick="return confirm('Etes-vous sur de supprimer cet etudiant?')"
+                               class="btn btn-outline-danger"
+                               th:href="@{/admin/delete(id=${s.id}, keyword=${keyword}, page=${currentPage})}"><i
+                                    class="fas fa-trash-alt"></i></a>
+                            <a sec:authorize="hasAuthority('ADMIN')" class="btn btn-outline-warning"
+                               th:href="@{/admin/editStudent(id=${s.id}, keyword=${keyword}, page=${currentPage})}"><i
+                                    class="fas fa-user-edit"></i></a>
+                            <a class="btn btn-outline-info"
+                               th:href="@{/user/listStudent(id=${s.id}, keyword=${keyword}, page=${currentPage})}"><i
+                                    class="fas fa-list"></i></a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <ul class="nav nav-pills">
+                    <li th:each="page,status:${pages}">
+                        <a th:class="${status.index==currentPage?'btn btn-primary ms-1':'btn btn-outline-primary ms-1'}"
+                           th:text="${status.index}"
+                           th:href="@{/user/index(page=${status.index},keyword=${keyword})}"></a>
+                    </li>
+                </ul>
+                <ul class="nav nav-pills">
+                    <li>
+                        <a class="btn btn-outline-primary mt-4" th:href="@{/admin/formStudents}"><i class="fas fa-user-plus"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="template1"
+      >
+<head>
+    <meta charset="UTF-8">
+    <title>Patients Management</title>
+
+</head>
+<body>
+<div layout:fragment="content1">
+    <div class="container mt-4 col-md-6">
+       <form method="post" th:action="@{login}">
+           <div>
+               <label>Username</label>
+               <input class="form-control" name="username" type="text">
+           </div>
+           <div>
+               <label>Password</label>
+               <input class="form-control" name="password" type="password">
+           </div>
+           <button type="submit" class="btn btn-primary"></button>
+       </form>
+    </div>
+</div>
+</body>
+</html>

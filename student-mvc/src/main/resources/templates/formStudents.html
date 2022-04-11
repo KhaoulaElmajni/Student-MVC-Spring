@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template1">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajouter un nouveau etudiant</title>
+</head>
+<body>
+<div layout:fragment="content1">
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header">Ajouter un nouveau etudiant</div>
+            <div class="card-body">
+                <form method="post" th:action="@{/admin/save}">
+                    <div class="form-group mt-2">
+                        <label class="control-label">Nom</label>
+                        <input class="form-control" name="nom" type="text" th:required="required" th:value="${student.nom}">
+                        <span th:errors="${student.nom}" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label class="control-label">Prenom</label>
+                        <input class="form-control" name="prenom" type="text" th:required="required" th:value="${student.prenom}">
+                        <span th:errors="${student.prenom}" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label class="control-label">Email</label>
+                        <input class="form-control" name="email" type="text" th:required="required" th:value="${student.email}">
+                        <span th:errors="${student.email}" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label class="control-label">Date de Naissance</label>
+                        <input class="form-control" name="dateNaissance" type="date" th:required="required"
+                               th:value="${student.dateNaissance}">
+                        <span th:errors="${student.dateNaissance}" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mt-2">
+                        <label class="control-label">Genre</label>
+                        <label for="feminin">Feminin</label><br>
+                        <input id="feminin" class="form-control" name="genre" type="radio" th:value="feminin">
+                        <label for="masculin">Masculin</label><br>
+                        <input id="masculin" class="form-control" name="genre" type="radio" th:value="masculin">
+                        <span th:errors="${student.genre}" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label class="control-label">Etat de regle</label>
+                        <input name="enregle" type="checkbox" th:checked="${student.enRegle}" >
+                        <span th:errors="${student.enRegle}" class="text-danger"></span>
+                    </div>
+                    <div class="mt-4">
+                        <a class="btn btn-outline-primary" th:href="@{/user/index(id=${student.id}, keyword=${keyword}, page=${page})}">
+                            <i class="fas fa-arrow-alt-circle-left"></i>
+                        </a>
+                        <button type="submit" class="btn btn-outline-primary"><i class="fas fa-user-plus"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
