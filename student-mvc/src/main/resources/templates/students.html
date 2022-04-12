@@ -65,7 +65,7 @@
                     </li>
                 </ul>
                 <ul class="nav nav-pills">
-                    <li>
+                    <li sec:authorize="hasAuthority('ADMIN')">
                         <a class="btn btn-outline-primary mt-4" th:href="@{/admin/formStudents}"><i class="fas fa-user-plus"></i></a>
                     </li>
                 </ul>
