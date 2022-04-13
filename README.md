@@ -166,7 +166,38 @@ Toutes les opérations d’ajout, de modification et de suppression ne peuvent s
 
 
  ## <strong style="color: green; opacity: 0.80" >6.comment ça marche ?</strong>
+    
+![](https://i.imgur.com/idqrG9f.png)
+ > View de login par déafaut de Spring Security [color=#fd837b]
+  ---
  
+![](https://i.imgur.com/jKj7Kzw.png)
+ > View home d'un utilisateur admin [color=#fd837b]
+  ---
+
+![](https://i.imgur.com/t4d0dNR.png)
+ > Formulaire d'ajout d'un étudiant [color=#fd837b]
+  ---
+![](https://i.imgur.com/vaCF8QA.png)
+ > Formulaire de mis à jour d'un étudiant [color=#fd837b]
+  ---
+
+![](https://i.imgur.com/8K4bH41.png)
+ > View de consultation des données d'un étudiant [color=#fd837b]
+  ---
+
+![](https://i.imgur.com/aEkNGzC.png)
+ > Cas de confirmation de suppression [color=#fd837b]
+  ---
+
+![](https://i.imgur.com/5GYk0W5.png)
+ > recherche d'un étudiant par nom [color=#fd837b]
+  ---
+
+![](https://i.imgur.com/o256Mha.png)
+ > View home d'un utilisateur qui a le role 'USER' qui a le droit uniquement de consulter les étudiants [color=#fd837b]
+  ---
+
 
  
 :::success
