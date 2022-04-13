@@ -146,14 +146,17 @@ Toutes les opérations d’ajout, de modification et de suppression ne peuvent s
 *voir également à propos de * [Thymeleaf](https://www.thymeleaf.org/doc/articles/springsecurity.html) :link: 
 
  
+## <span style="color:green ">4.Structure du projet</span>
+![](https://i.imgur.com/lvrXRnI.png)
 
- ## <span style="color:green ">4.CONCEPTION & ANALYSES</span>
- * ###### <strong style="color:red; opacity: 0.80">MCD</strong>
 
+ ## <span style="color:green ">5.CONCEPTION & ANALYSES</span>
+ * ###### <strong style="color:red; opacity: 0.80">Diagramme de classe </strong>
+> Diagramme de classe [color=#fd837b]
 
   ---
   
-   * ###### <strong style="color:red; opacity: 0.80">MLD</strong>
+   * ###### <strong style="color:red; opacity: 0.80">Diagramme de cas d'utilisation</strong>
 
 
 
@@ -162,7 +165,7 @@ Toutes les opérations d’ajout, de modification et de suppression ne peuvent s
   ---
 
 
- ## <strong style="color: green; opacity: 0.80" >5.comment ça marche ?</strong>
+ ## <strong style="color: green; opacity: 0.80" >6.comment ça marche ?</strong>
  
 
  
@@ -172,7 +175,7 @@ Voilà :white_check_mark:
 
 
 
-* <strong style="color: dark ; opacity: 0.80">Enfin nous tenons à remercier le seul et unique, notre professeur Mr ELYOUSFI Mohamed *Docteur & professeur à l'ENSET MEDIA* pour son soutien et son encouragement envers nous, aussi pour nous avoir donné cette opportunité d'améliorer nos compétences et de connaître les nouvelles technologies comme celles qui nous avons travaillé.
+* <strong style="color: dark ; opacity: 0.80">Enfin nous tenons à remercier le seul et unique, notre professeur Mr YOUSFI Mohamed *Docteur & professeur à l'ENSET MEDIA* pour son soutien et son encouragement envers nous, aussi pour nous avoir donné cette opportunité d'améliorer nos compétences et de connaître les nouvelles technologies comme celles qui nous avons travaillé.
 
 *voir également à propos* Mr [YOUSSFI Mohamed](https://www.linkedin.com/in/mohamed-youssfi-3ab0811b/)
 </strong>
