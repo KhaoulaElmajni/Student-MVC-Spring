@@ -3,8 +3,8 @@
 # <span style="color:green "> 1.Présentation de l'activité pratique</span>
  * <strong style="color:dark">Il s’agit d'une application Web basée sur Spring MVC, Spring Data JPA et Spring Security qui permet de gérer des étudiants. </span>
 ## <span style="color:#66ff66"> Entités et règles de gestion : :label:</span>
-L’application devra gérer quatre entités. 
-Les entités utilisées dans l’application sont : 
+L’application devra gérer une entité. 
+L'entité utilisée dans l’application est: 
 * * * 
 >	Une entité "Student" qui comporte les propriétés suivantes :
  - Son id
