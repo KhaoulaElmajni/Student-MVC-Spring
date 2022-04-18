@@ -55,7 +55,7 @@
         </ul>
         <ul class="navbar-nav" >
             <li class="nav-item" sec:authorize="isAuthenticated()">
-                <a  class="nav-link" th:href="@{/user/profile}" role="button">
+                <a  class="nav-link" th:href="@{/user/profile}" >
                     <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909__340.png" alt="Avatar Logo" style="width:30px;" class="rounded-pill">
                     <span sec:authentication="name"></span>
                 </a>

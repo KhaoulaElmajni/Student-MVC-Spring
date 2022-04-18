@@ -13,10 +13,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -46,11 +43,31 @@ public class StudentController {
         return "students";
     }
 
-    @GetMapping("/admin/delete")
+    //1
+   @GetMapping("/admin/delete")
     public String delete(Long id, String keyword, int page){
         studentRepository.deleteById(id);
         return "redirect:/user/index?page="+page+"&keyword="+keyword;
     }
+
+    //2
+    /*@DeleteMapping("/admin/delete/{id}")
+    public String  delete(@PathVariable Long id,String keyword, int page) {
+        studentRepository.deleteById(id);
+        return "redirect:/user/index?page="+page+"&keyword="+keyword;
+    }*/
+
+    //3
+    /*@RequestMapping(value="/admin/delete/{id}", method = RequestMethod.DELETE)
+    @ResponseBody
+    public String delete(@PathVariable Long id,String keyword, int page) {
+        studentRepository.deleteById(id);
+        return "redirect:/user/index?page="+page+"&keyword="+keyword;
+    }*/
+    /*@DeleteMapping("/admin/delete/{id}")
+    public void   delete(@PathVariable Long id) {
+        studentRepository.deleteById(id);
+    }*/
 
     @GetMapping("/")
     public String home(){
@@ -72,11 +89,11 @@ public class StudentController {
     @GetMapping("/user/profile")
     public String profile(Model model, String username){
         AppUser appUser = appUserRepository.findByUsername(username);
-        List<AppRole> roles = new ArrayList<>();
+        /*List<AppRole> roles = new ArrayList<>();
         for (AppRole role: appUser.getAppRoles()) {
             roles.add(role);
         }
-        model.addAttribute("roles",roles);
+        model.addAttribute("roles",roles);*/
         model.addAttribute("user",appUser);
         return "profile";
     }
@@ -116,8 +133,8 @@ public class StudentController {
         return "listStudent";
     }
 
-    /*@GetMapping("/auth")
+    @GetMapping("/auth")
     public String login(){
         return "login";
-    }*/
+    }
 }

@@ -47,6 +47,17 @@
                                class="btn btn-outline-danger"
                                th:href="@{/admin/delete(id=${s.id}, keyword=${keyword}, page=${currentPage})}"><i
                                     class="fas fa-trash-alt"></i></a>
+
+                            <!--2-->
+                            <!--<form method="post" th:action="@{/admin/delete/{id}(id=${s.id}, keyword=${keyword}, page=${currentPage})}" >
+                                <input type="submit" value="Submit">
+                            </form>-->
+
+                            <!--<form action="#" th:action="@{/admin/delete/{id}(id=${s.id})}" th:method="delete" >
+                                <input type="hidden" name="_method" value="delete" />
+                                <button type="submit" id="submitButton">delete</button>
+                            </form>-->
+
                             <a sec:authorize="hasAuthority('ADMIN')" class="btn btn-outline-warning"
                                th:href="@{/admin/editStudent(id=${s.id}, keyword=${keyword}, page=${currentPage})}"><i
                                     class="fas fa-user-edit"></i></a>
