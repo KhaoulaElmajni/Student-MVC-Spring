@@ -52,76 +52,21 @@
                 </div>
             </div>
         </div>
-        <div class="card">
-            <div class="card-header">Students List</div>
-            <div class="card-body">
-                <form method="get" th:action="@{/user/index}">
-                    <label>Chercher un etudiant :</label>
-                    <input type="text" name="keyword" placeholder="Student name" th:value="${keyword}">
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
-                </form>
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th><i class="fas fa-id-card"></i> ID</th>
-                        <th><i class="fas fa-file-user"></i> Firstname</th>
-                        <th><i class="fas fa-file-user"></i> Lastname</th>
-                        <th><i class="fas fa-file-user"></i> Email</th>
-                        <th><i class="fas fa-calendar-alt"></i> Birth Date</th>
-                        <th><i class="fas fa-heartbeat"></i> Sexe</th>
-                        <th><i class="far fa-star"></i> Status</th>
-                        <th><i class="fas fa-users-cog"></i> Action</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="s:${listStudents}">
-                        <td th:text="${s.id}"></td>
-                        <td th:text="${s.nom}"></td>
-                        <td th:text="${s.prenom}"></td>
-                        <td th:text="${s.email}"></td>
-                        <td th:text="${s.dateNaissance}"></td>
-                        <td th:text="${s.genre}"></td>
-                        <td th:text="${s.enRegle}"></td>
-                        <td>
-                            <a sec:authorize="hasAuthority('ADMIN')" onclick="return confirm('Etes-vous sur de supprimer cet etudiant?')"
-                               class="btn btn-outline-danger"
-                               th:href="@{/admin/delete(id=${s.id}, keyword=${keyword}, page=${currentPage})}"><i
-                                    class="fas fa-trash-alt"></i></a>
-
-                            <!--2-->
-                            <!--<form method="post" th:action="@{/admin/delete/{id}(id=${s.id}, keyword=${keyword}, page=${currentPage})}" >
-                                <input type="submit" value="Submit">
-                            </form>-->
-
-                            <!--<form action="#" th:action="@{/admin/delete/{id}(id=${s.id})}" th:method="delete" >
-                                <input type="hidden" name="_method" value="delete" />
-                                <button type="submit" id="submitButton">delete</button>
-                            </form>-->
-
-                            <a sec:authorize="hasAuthority('ADMIN')" class="btn btn-outline-warning"
-                               th:href="@{/admin/editStudent(id=${s.id}, keyword=${keyword}, page=${currentPage})}"><i
-                                    class="fas fa-user-edit"></i></a>
-                            <a class="btn btn-outline-info"
-                               th:href="@{/user/listStudent(id=${s.id}, keyword=${keyword}, page=${currentPage})}"><i
-                                    class="fas fa-list"></i></a>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-                <ul class="nav nav-pills">
-                    <li th:each="page,status:${pages}">
-                        <a th:class="${status.index==currentPage?'btn btn-primary ms-1':'btn btn-outline-primary ms-1'}"
-                           th:text="${status.index}"
-                           th:href="@{/user/index(page=${status.index},keyword=${keyword})}"></a>
-                    </li>
-                </ul>
-                <ul class="nav nav-pills">
-                    <li sec:authorize="hasAuthority('ADMIN')">
-                        <a class="btn btn-outline-primary mt-4" th:href="@{/admin/formStudents}"><i class="fas fa-user-plus"></i></a>
-                    </li>
-                </ul>
-            </div>
+        <div>
+            <ul class="nav nav-pills mt-4">
+                <li th:each="page,status:${pages}">
+                    <a th:class="${status.index==currentPage?'btn btn-primary ms-1':'btn btn-outline-primary ms-1'}"
+                       th:text="${status.index}"
+                       th:href="@{/user/index(page=${status.index},keyword=${keyword})}"></a>
+                </li>
+            </ul>
+            <ul class="nav nav-pills">
+                <li sec:authorize="hasAuthority('ADMIN')">
+                    <a class="btn btn-outline-primary mt-4" th:href="@{/admin/formStudents}"><i class="fas fa-user-plus"></i></a>
+                </li>
+            </ul>
         </div>
+
     </div>
 </div>
 </body>
