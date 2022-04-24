@@ -5,13 +5,13 @@
       layout:decorate="template4">
 <head>
     <meta charset="UTF-8">
-    <title>Consulter Etudiant</title>
+    <title>Consult studentt</title>
 </head>
 <body>
 <div layout:fragment="content1">
     <div class="container mt-4">
         <div class="card">
-            <div class="card-header">Consulter etudiant</div>
+            <div class="card-header">Consult student</div>
             <div class="card-body">
                 <form>
                     <div class="form-group mt-2">
@@ -19,11 +19,11 @@
                         <label th:text="${student.id}"></label>
                     </div>
                     <div class="form-group mt-2">
-                        <label class="control-label">Nom : </label>
+                        <label class="control-label">Firstname : </label>
                         <label th:text="${student.nom}"></label>
                     </div>
                     <div class="form-group mt-2">
-                        <label class="control-label">Prenom : </label>
+                        <label class="control-label">Lastname : </label>
                         <label th:text="${student.prenom}"></label>
                     </div>
                     <div class="form-group mt-2">
@@ -31,15 +31,15 @@
                         <label th:text="${student.email}"></label>
                     </div>
                     <div class="form-group mt-2">
-                        <label class="control-label">Date de naissance : </label>
+                        <label class="control-label">Birth Date : </label>
                         <label th:text="${student.dateNaissance}"></label>
                     </div>
                     <div class="form-group mt-2">
-                        <label class="control-label">Genre : </label>
+                        <label class="control-label">Sexe : </label>
                         <label th:text="${student.genre}"></label>
                     </div>
                     <div class="form-group mt-2">
-                        <label class="control-label">Etat de regle : </label>
+                        <label class="control-label">Status : </label>
                         <label th:text="${student.enRegle}"></label>
                     </div>
                     <div class="mt-4">

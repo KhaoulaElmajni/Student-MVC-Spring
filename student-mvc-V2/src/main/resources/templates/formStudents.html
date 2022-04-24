@@ -4,22 +4,22 @@
       layout:decorate="template4">
 <head>
     <meta charset="UTF-8">
-    <title>Ajouter un nouveau etudiant</title>
+    <title>Add new student</title>
 </head>
 <body>
 <div layout:fragment="content1">
     <div class="container mt-4">
         <div class="card">
-            <div class="card-header">Ajouter un nouveau etudiant</div>
+            <div class="card-header">Add new student</div>
             <div class="card-body">
                 <form method="post" th:action="@{/admin/save}">
                     <div class="form-group mt-2">
-                        <label class="control-label">Nom</label>
+                        <label class="control-label">Firstname</label>
                         <input class="form-control" name="nom" type="text" th:required="required" th:value="${student.nom}">
                         <span th:errors="${student.nom}" class="text-danger"></span>
                     </div>
                     <div class="form-group mt-2">
-                        <label class="control-label">Prenom</label>
+                        <label class="control-label">Lastname</label>
                         <input class="form-control" name="prenom" type="text" th:required="required" th:value="${student.prenom}">
                         <span th:errors="${student.prenom}" class="text-danger"></span>
                     </div>
@@ -29,7 +29,7 @@
                         <span th:errors="${student.email}" class="text-danger"></span>
                     </div>
                     <div class="form-group mt-2">
-                        <label class="control-label">Date de Naissance</label>
+                        <label class="control-label">Birth Date</label>
                         <input class="form-control" name="dateNaissance" type="date" th:required="required"
                                th:value="${student.dateNaissance}">
                         <span th:errors="${student.dateNaissance}" class="text-danger"></span>
@@ -51,7 +51,7 @@
                         </div>
                     </div>
                     <div class="form-group mt-2">
-                        <label class="control-label">Etat de regle</label>
+                        <label class="control-label">Status</label>
                         <input name="enRegle" class="form-check-input" type="checkbox" th:checked="${student.enRegle}" >
 <!--
                         <input class="form-control" name="enregle" type="hidden" th:value="${student.enRegle}">

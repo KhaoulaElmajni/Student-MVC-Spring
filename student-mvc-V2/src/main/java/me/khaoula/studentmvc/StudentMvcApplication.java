@@ -26,13 +26,13 @@ public class StudentMvcApplication {
         return new BCryptPasswordEncoder();
     }
 
-    //@Bean
+   // @Bean
     CommandLineRunner commandLineRunner(StudentRepository studentRepository){
         return args -> {
-            studentRepository.save(new Student(null,"khaoula","ELMAJNI","elmajnikhaoula99@gmail.com",new Date(), Gender.Feminin,true));
-            studentRepository.save(new Student(null,"khaoula","ELMAJNI","elmajnikhaoula99@gmail.com",new Date(), Gender.Feminin,true));
-            studentRepository.save(new Student(null,"khaoula","ELMAJNI","elmajnikhaoula99@gmail.com",new Date(), Gender.Feminin,true));
-            studentRepository.save(new Student(null,"khaoula","ELMAJNI","elmajnikhaoula99@gmail.com",new Date(), Gender.Feminin,true));
+            studentRepository.save(new Student(null,"khaoula","ELMAJNI","elmajnikhaoula99@gmail.com",new Date(), Gender.Feminin,true,"https://randomuser.me/api/portraits/men/96.jpg"));
+            studentRepository.save(new Student(null,"khaoula","ELMAJNI","elmajnikhaoula99@gmail.com",new Date(), Gender.Feminin,true,"https://randomuser.me/api/portraits/women/45.jpg"));
+            studentRepository.save(new Student(null,"khaoula","ELMAJNI","elmajnikhaoula99@gmail.com",new Date(), Gender.Feminin,true,"https://randomuser.me/api/portraits/women/60.jpg"));
+            studentRepository.save(new Student(null,"khaoula","ELMAJNI","elmajnikhaoula99@gmail.com",new Date(), Gender.Feminin,true,"https://randomuser.me/api/portraits/men/62.jpg"));
 
             studentRepository.findAll().forEach(p->{
                 System.out.println(p.getNom());

@@ -33,7 +33,7 @@ public class StudentController {
     public String students(Model model,
                            //param d'url
                            @RequestParam(name="page", defaultValue = "0") int page,
-                           @RequestParam(name="size", defaultValue = "5") int size,
+                           @RequestParam(name="size", defaultValue = "6") int size,
                            @RequestParam(name="keyword", defaultValue = "") String keyword){
         Page<Student> studentPage = studentRepository.findByNomContains(keyword, PageRequest.of(page,size));
         model.addAttribute("listStudents",studentPage.getContent());

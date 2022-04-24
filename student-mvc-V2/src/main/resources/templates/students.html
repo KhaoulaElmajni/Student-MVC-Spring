@@ -11,7 +11,31 @@
 </head>
 <body>
 <div layout:fragment="content1">
+
     <div class="container mt-4">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col" th:each="s:${listStudents}">
+                <div class="card h-100" >
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Student_%28example%29.svg"  class="card-img-top" alt="..." style="height: 15rem; width: 15rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <div>
+                            <a sec:authorize="hasAuthority('ADMIN')" onclick="return confirm('Etes-vous sur de supprimer cet etudiant?')"
+                               class="btn btn-outline-danger"
+                               th:href="@{/admin/delete(id=${s.id}, keyword=${keyword}, page=${currentPage})}"><i
+                                    class="fas fa-trash-alt"></i></a>
+                            <a sec:authorize="hasAuthority('ADMIN')" class="btn btn-outline-warning"
+                               th:href="@{/admin/editStudent(id=${s.id}, keyword=${keyword}, page=${currentPage})}"><i
+                                    class="fas fa-user-edit"></i></a>
+                            <a class="btn btn-outline-info"
+                               th:href="@{/user/listStudent(id=${s.id}, keyword=${keyword}, page=${currentPage})}"><i
+                                    class="fas fa-list"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="card">
             <div class="card-header">Students List</div>
             <div class="card-body">
