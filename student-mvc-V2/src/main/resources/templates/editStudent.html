@@ -9,109 +9,83 @@
 </head>
 <body>
 <div layout:fragment="content1">
-    <div class="container mt-4">
-        <div class="card">
-            <div class="card-header">Update Student <label th:text="${student.nom}"></label></div>
-            <div class="card-body">
-                <form method="post" th:action="@{/admin/save(page=${page},keyword=${keyword})}">
-                    <div class="form-group mt-2">
-                        <label class="control-label">ID</label>
-                        <label class="control-label" th:text="${student.id}"></label>
-                        <input class="form-control" name="id" type="hidden" th:value="${student.id}">
-                    </div>
-                    <div class="form-group mt-2">
-                        <label class="control-label">Firstame</label>
-                        <input class="form-control" name="nom" type="text" th:value="${student.nom}">
-                        <span th:errors="${student.nom}" class="text-danger"></span>
-                    </div>
-                    <div class="form-group mt-2">
-                        <label class="control-label">Lastname</label>
-                        <input class="form-control" name="prenom" type="text" th:value="${student.prenom}">
-                        <span th:errors="${student.prenom}" class="text-danger"></span>
-                    </div>
-                    <div class="form-group mt-2">
-                        <label class="control-label">Email</label>
-                        <input class="form-control" name="email" type="text" th:value="${student.email}">
-                        <span th:errors="${student.email}" class="text-danger"></span>
-                    </div>
-                    <div class="form-group mt-2">
-                        <label class="control-label">Birth Date</label>
-                        <input class="form-control" name="dateNaissance" type="date"
-                               th:value="${student.dateNaissance}">
-                        <span th:errors="${student.dateNaissance}" class="text-danger"></span>
-                    </div>
-                    <!--<div class="form-group mt-2">
-                        <label class="control-label">Genre</label>
-                        <input id="feminin" class="form-control" name="genre" type="radio"
-                               th:value="${student.genre}">
-                        <label for="feminin">Feminin</label><br>
-                        <input id="masculin" class="form-control" name="genre" type="radio"
-                               th:value="${student.genre}">
-                        <label for="masculin">Masculin</label><br>
-                        <span th:errors="${student.genre}" class="text-danger"></span>
-                    </div>-->
 
-                    <label class="control-label">Sexe</label>
-                    <div th:each="model : ${T(me.khaoula.studentmvc.entities.Gender).values()}">
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" th:field="*{student.genre}" th:value="${model}" class="custom-control-input">
-                            <label class="custom-control-label" th:for="${#ids.prev('genre')}" th:text="${model}">model</label>
+
+    <form method="post" th:action="@{/admin/save(page=${page},keyword=${keyword})}">
+        <div class="container rounded bg-white mt-5 mb-5">
+            <div class="row">
+                <div class="col-md-3 border-right">
+                    <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                        <img class="rounded-circle mt-5" width="150px" src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Student_%28example%29.svg"><span class="font-weight-bold"><label th:text="${student.nom}"></label></span><span class="text-black-50"><label th:text="${student.email}"></label></span><span> </span></div>
+                </div>
+                <div class="col-md-5 border-right">
+                    <div class="p-3 py-5">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="text-right">Consult student's information</h4>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-12">
+                                <label class="labels">ID : </label>
+                                <label class="control-label" th:text="${student.id}"></label>
+                                <input class="form-control" name="id" type="hidden" th:value="${student.id}">
+
+                            </div>
+                            <div class="col-md-12"><label class="labels">Firstname : </label>
+                                <input class="form-control" name="nom" type="text" th:value="${student.nom}">
+                                <span th:errors="${student.nom}" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-12"><label class="labels">Lastname : </label>
+                                <input class="form-control" name="prenom" type="text" th:value="${student.prenom}">
+                                <span th:errors="${student.prenom}" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-12"><label class="labels">Sexe : </label>
+                                <div th:each="model : ${T(me.khaoula.studentmvc.entities.Gender).values()}">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" th:field="*{student.genre}" th:value="${model}" class="custom-control-input">
+                                        <label class="custom-control-label" th:for="${#ids.prev('genre')}" th:text="${model}">model</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12"><label class="labels">Email : </label>
+                                <input class="form-control" name="email" type="text" th:value="${student.email}">
+                                <span th:errors="${student.email}" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-12"><label class="labels">Birth Date : </label>
+                                <input class="form-control" name="dateNaissance" type="date"
+                                       th:value="${student.dateNaissance}">
+                                <span th:errors="${student.dateNaissance}" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-12"><label class="labels">Status :  </label>
+                                <input name="enRegle" type="checkbox" th:checked="${student.enRegle}" >
+                                <span th:errors="${student.enRegle}" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="mt-5 text-center">
+                            <a class="btn btn-outline-primary" th:href="@{/user/index(id=${student.id}, keyword=${keyword}, page=${page})}">
+                                <i class="fas fa-arrow-alt-circle-left"></i>
+                            </a>
+                            <button type="submit" class="btn btn-outline-primary"><i class="fas fa-save"></i></button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3 py-5">
+                        <div class="d-flex justify-content-between align-items-center experience"><span>Marks</span>
+                            <a class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Visit</a>
+                        </div><br>
+                        <div class="col-md-12"><label class="labels">Experience in Development</label>
+                            <label class="labels">4 Years</label>
+                            <div class="col-md-12"><label class="labels">Additional Details</label>
+                                <label class="labels"></label>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group mt-2">
-                        <label class="control-label">Status</label>
-                        <input name="enRegle" type="checkbox" th:checked="${student.enRegle}" >
-                        <span th:errors="${student.enRegle}" class="text-danger"></span>
-                    </div>
-                    <div class="mt-4">
-                        <a class="btn btn-outline-primary" th:href="@{/user/index(id=${student.id}, keyword=${keyword}, page=${page})}">
-                            <i class="fas fa-arrow-alt-circle-left"></i>
-                        </a>
-                        <button type="submit" class="btn btn-outline-primary"><i class="fas fa-save"></i></button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="container rounded bg-white mt-5 mb-5">
-        <div class="row">
-            <div class="col-md-3 border-right">
-                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">Edogaru</span><span class="text-black-50">edogaru@mail.com.my</span><span> </span></div>
-            </div>
-            <div class="col-md-5 border-right">
-                <div class="p-3 py-5">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h4 class="text-right">Profile Settings</h4>
-                    </div>
-                    <div class="row mt-2">
-                        <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" value=""></div>
-                        <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="" placeholder="surname"></div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="enter phone number" value=""></div>
-                        <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="enter address line 1" value=""></div>
-                        <div class="col-md-12"><label class="labels">Address Line 2</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                        <div class="col-md-12"><label class="labels">Postcode</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                        <div class="col-md-12"><label class="labels">State</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                        <div class="col-md-12"><label class="labels">Area</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                        <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" placeholder="enter email id" value=""></div>
-                        <div class="col-md-12"><label class="labels">Education</label><input type="text" class="form-control" placeholder="education" value=""></div>
-                    </div>
-
-                    <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="p-3 py-5">
-                    <div class="d-flex justify-content-between align-items-center experience"><span>Edit Experience</span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Experience</span></div><br>
-                    <div class="col-md-12"><label class="labels">Experience in Designing</label><input type="text" class="form-control" placeholder="experience" value=""></div> <br>
-                    <div class="col-md-12"><label class="labels">Additional Details</label><input type="text" class="form-control" placeholder="additional details" value=""></div>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 
 
 </div>
