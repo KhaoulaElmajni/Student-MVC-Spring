@@ -65,7 +65,7 @@
                             <a class="btn btn-outline-primary" th:href="@{/user/index(id=${student.id}, keyword=${keyword}, page=${page})}">
                                 <i class="fas fa-arrow-alt-circle-left"></i>
                             </a>
-                            <button type="submit" class="btn btn-outline-primary"><i class="fas fa-save"></i></button>
+                            <button onclick="swal('Well Update!', 'You update this student!', 'success')" type="submit" class="btn btn-outline-primary"><i class="fas fa-save"></i></button>
                         </div>
 
                     </div>

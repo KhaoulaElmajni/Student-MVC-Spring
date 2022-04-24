@@ -60,7 +60,12 @@
                         <a class="btn btn-outline-primary" th:href="@{/user/index(id=${student.id}, keyword=${keyword}, page=${page})}">
                             <i class="fas fa-arrow-alt-circle-left"></i>
                         </a>
-                        <button type="submit" class="btn btn-outline-primary"><i class="fas fa-user-plus"></i></button>
+                        <button type="submit" onclick="swal({
+                        title: 'Addition!',
+                        text: 'You added  anew student!',
+                        icon: 'success',
+                        button: 'Aww yiss!',
+                        });" class="btn btn-outline-primary"><i class="fas fa-user-plus"></i></button>
                     </div>
                 </form>
             </div>

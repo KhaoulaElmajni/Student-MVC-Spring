@@ -133,8 +133,8 @@ public class StudentController {
         return "listStudent";
     }
 
-    @GetMapping("/auth")
+   /* @GetMapping("/auth")
     public String login(){
         return "login";
-    }
+    }*/
 }

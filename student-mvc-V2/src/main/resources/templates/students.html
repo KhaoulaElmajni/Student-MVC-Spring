@@ -37,7 +37,24 @@
                         </div>
 
                         <div>
-                            <a sec:authorize="hasAuthority('ADMIN')" onclick="return confirm('Etes-vous sur de supprimer cet etudiant?')"
+                            <a sec:authorize="hasAuthority('ADMIN')" onclick="return Swal.fire({
+                          title: 'Are you sure?',
+                          text: 'You won t be able to revert this student!',
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'Yes, delete it!'
+                            }).then((result) => {
+                            if (result.isConfirmed) {
+
+                            Swal.fire(
+                            'Deleted!',
+                            'The student has been deleted.',
+                            'success'
+                            )
+                            }
+                            }) "
                                class="btn btn-outline-danger"
                                th:href="@{/admin/delete(id=${s.id}, keyword=${keyword}, page=${currentPage})}"><i
                                     class="fas fa-trash-alt"></i></a>
