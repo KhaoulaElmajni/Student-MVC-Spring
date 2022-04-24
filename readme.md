@@ -191,9 +191,7 @@ Toutes les opérations d’ajout, de modification et de suppression ne peuvent s
  > View de consultation des données d'un étudiant [color=#fd837b]
   ---
 
-![](https://i.imgur.com/aEkNGzC.png)
- > Cas de confirmation de suppression [color=#fd837b]
-  ---
+
 
 ![](https://i.imgur.com/9EC4ici.png)
  > recherche d'un étudiant par nom [color=#fd837b]
