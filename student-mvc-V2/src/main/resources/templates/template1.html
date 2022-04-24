@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/5.1.3/css/bootstrap.min.css">
+    <script src="webjars/bootstrap/5.1.3/js/bootstrap.bundle.js"></script>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.1.3/css/bootstrap.min.css">
+    <!-- CSS only -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css"
+          integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+          integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+</head>
+<body>
+<!-- Grey with black text -->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link active" th:href="@{/user/index}"><i class="fas fa-hospital-user"></i> Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fas fa-user-md"></i> Professeurs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fas fa-handshake-alt"></i> Matiéres</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="#"><i class="fas fa-ballot-check"></i> Salles</a>
+            </li>
+            <li class="nav-item" sec:authorize="hasAuthority('ADMIN')">
+                <a class="nav-link" th:href="@{/admin/formStudents}">Nouveau</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/user/index}">Chercher</a>
+            </li>
+
+           <!-- <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                    Students
+                </a>
+                <ul class="dropdown-menu" >
+                    <li sec:authorize="hasAuthority('ADMIN')">
+                        <a class="dropdown-item" th:href="@{/admin/formStudents}">Nouveau</a>
+                    </li>
+                    <li><a class="dropdown-item" th:href="@{/user/index}">Chercher</a></li>
+                </ul>
+            </li>-->
+        </ul>
+        <ul class="navbar-nav" >
+            <li class="nav-item" sec:authorize="isAuthenticated()">
+                <a  class="nav-link" th:href="@{/user/profile}" >
+                    <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909__340.png" alt="Avatar Logo" style="width:30px;" class="rounded-pill">
+                    <span sec:authentication="name"></span>
+                </a>
+            </li>
+            <li class="nav-item">
+            <li sec:authorize="isAuthenticated()">
+                <a class="nav-link" th:href="@{/logout}">Logout</a></li>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" sec:authorize="!isAuthenticated()" th:href="@{/login}">Login</a>
+            </li>
+        </ul>
+        <!--<ul class="navbar-nav" >
+            <li class="nav-item dropdown" sec:authorize="isAuthenticated()">
+                <a  class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                    <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909__340.png" alt="Avatar Logo" style="width:40px;" class="rounded-pill">
+                    <span sec:authentication="name"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" th:href="@{/logout}">Logout</a></li>
+                    <li><a class="dropdown-item" th:href="@{/profile}">Profile</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" sec:authorize="!isAuthenticated()" th:href="@{/login}">Login</a>
+            </li>
+        </ul>-->
+    </div>
+</nav>
+<section layout:fragment="content1">
+
+</section>
+<section layout:fragment="content2">
+    <footer class="bg-light text-center text-white">
+        <div class="container p-4 pb-0">
+            <section class="mb-4">
+                <a class="btn btn-primary btn-floating m-1"
+                        style="background-color: #3b5998;"
+                        href="facebook.com"
+                        role="button">
+                    <i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-primary btn-floating m-1"
+                        style="background-color: #55acee;"
+                        href="https://twitter.com/ElmajniK"
+                        role="button">
+                    <i class="fab fa-twitter"></i></a>
+                <a class="btn btn-primary btn-floating m-1"
+                        style="background-color: #dd4b39;"
+                        href="#!"
+                        role="button"><i class="fab fa-google"></i>
+                </a>
+                <a class="btn btn-primary btn-floating m-1"
+                        style="background-color: #ac2bac;"
+                        href="#!"
+                        role="button"
+                ><i class="fab fa-instagram"></i>
+                </a>
+                <a class="btn btn-primary btn-floating m-1"
+                        style="background-color: #0082ca;"
+                        href="https://www.linkedin.com/in/khaoula-elmajni/"
+                        role="button"
+                ><i class="fab fa-linkedin-in"></i
+                ></a>
+                <a class="btn btn-primary btn-floating m-1"
+                        style="background-color: #333333;"
+                        href="https://github.com/KhaoulaElmajni/"
+                        role="button">
+                    <i class="fab fa-github"></i></a>
+            </section>
+        </div>
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2020 Copyright:
+            <a class="text-white" href="https://www.linkedin.com/in/khaoula-elmajni/">Khaoula</a>
+        </div>
+    </footer>
+</section>
+</body>
+</html>

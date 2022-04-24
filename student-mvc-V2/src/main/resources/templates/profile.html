@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="template4">
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+</head>
+<body>
+<div layout:fragment="content1">
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header" sec:authentication="name"> Profile</div>
+            <div class="card-body">
+                <form>
+                    <!--<div class="form-group mt-2">
+                        <label class="control-label">ID : </label>
+                        <label sec:authentication="id"></label>
+                    </div>-->
+                    <div class="form-group mt-2">
+                        <label class="control-label">Nom : </label>
+                        <label sec:authentication="name"></label>
+                    </div>
+                    <!--<div class="form-group mt-2">
+                        <label class="control-label">Etat de fonctionnement : </label>
+                        <label sec:authentication="active"></label>
+                    </div>-->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
