@@ -13,13 +13,29 @@
 <div layout:fragment="content1">
 
     <div class="container mt-4">
+       <div>
+           <form method="get" th:action="@{/user/index}">
+               <label>Chercher un etudiant :</label>
+               <input type="text" name="keyword" placeholder="Student name" th:value="${keyword}">
+               <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+           </form>
+       </div>
+
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <div class="col" th:each="s:${listStudents}">
                 <div class="card h-100" >
                     <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Student_%28example%29.svg"  class="card-img-top" alt="..." style="height: 15rem; width: 15rem;">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <h5 class="card-title" th:text="${s.nom} +${s.prenom}"></h5>
+                        <div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item" th:text="${s.email}"></li>
+                                <li class="list-group-item" th:text="${s.genre}"></li>
+                                <li class="list-group-item" th:text="${s.dateNaissance}"></li>
+                                <li class="list-group-item" th:text="${s.enRegle}"></li>
+                            </ul>
+                        </div>
+
                         <div>
                             <a sec:authorize="hasAuthority('ADMIN')" onclick="return confirm('Etes-vous sur de supprimer cet etudiant?')"
                                class="btn btn-outline-danger"
