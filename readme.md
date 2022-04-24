@@ -204,6 +204,9 @@ Toutes les opérations d’ajout, de modification et de suppression ne peuvent s
 ![](https://i.imgur.com/I9K8Zgv.png)
  > View home d'un utilisateur qui a le role 'USER' qui a le droit uniquement de consulter les étudiants [color=#fd837b]
   ---
+    
+![](https://i.imgur.com/VPdvidK.png)
+> View de la page 403
 
 
  
